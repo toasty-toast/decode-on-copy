@@ -1,27 +1,6 @@
 const MAX_DECODE_ATTEMPTS = 5;
 
 /**
- * Copies text to the clipboard.
- * 
- * @param  {string} text The text to copy to the clipboard.
- */
-function copyToClipboard(text) {
-	var textarea = document.createElement('textarea');
-	textarea.textContent = text;
-	textarea.style.position = 'fixed';
-	document.body.appendChild(textarea);
-	textarea.select();
-	try {
-		return document.execCommand('cut');
-	} catch (ex) {
-		console.warn('Copy to clipboard failed.', ex);
-		return false;
-	} finally {
-		document.body.removeChild(textarea);
-	}
-}
-
-/**
  * Returns the text that is currently selected in the window.
  */
 function getSelectedText() {
