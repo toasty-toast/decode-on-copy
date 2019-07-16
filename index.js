@@ -62,7 +62,7 @@ function isBase64(str) {
  * @param  {ClipboardEvent} e The ClipboardEvent associated with the copy event.
  */
 function onCopy(e) {
-	var data = getSelectedText();
+	var data = getSelectedText().trim();
 	for (var i = 0; i < MAX_DECODE_ATTEMPTS; i++) {
 		if (!isBase64(data)) {
 			break;
