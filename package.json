@@ -1,0 +1,28 @@
+{
+  "name": "decode-on-copy",
+  "version": "1.1.0",
+  "description": "Decode On Copy tries to base64 decode any text that you copy, and if it can be decoded to a valid URL, the URL will be copied to your clipboard instead. It is best demonstrated by example.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-firefox": "webpack --env.TARGET=firefox",
+    "build-chrome": "webpack --env.TARGET=chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toasty-toast/decode-on-copy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toasty-toast/decode-on-copy/issues"
+  },
+  "homepage": "https://github.com/toasty-toast/decode-on-copy#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6"
+  }
+}
