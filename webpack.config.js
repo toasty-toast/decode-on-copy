@@ -1,7 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Webpack = require('webpack');
-const Package = require('./package.json');
+const path = require('path');
+const webpack = require('webpack');
+const package = require('./package.json');
 
 module.exports = env => {
 	const isFirefox = env.TARGET == 'firefox';
@@ -9,10 +10,11 @@ module.exports = env => {
 	return {
 		mode: 'production',
 		output: {
-			filename: 'index.js'
+			filename: 'index.js',
+			path: path.resolve(process.cwd(), 'dist')
 		},
 		plugins: [
-			new Webpack.ProgressPlugin(),
+			new webpack.ProgressPlugin(),
 			new CleanWebpackPlugin(),
 			new CopyWebpackPlugin([
 				{
@@ -25,8 +27,8 @@ module.exports = env => {
 					transform: (content, path) => {
 						manifest = {
 							...JSON.parse(content.toString()),
-							description: Package.description,
-							version: Package.version
+							description: package.description,
+							version: package.version
 						};
 
 						// "applications" must be in the manifest for a Firefox addon, but cannot be in the manifest for a chrome extension.
