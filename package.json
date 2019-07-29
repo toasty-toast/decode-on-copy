@@ -4,9 +4,8 @@
   "description": "Decode On Copy tries to base64 decode any text that you copy, and if it can be decoded to a valid URL, the URL will be copied to your clipboard instead. It is best demonstrated by example.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-firefox": "webpack --env.TARGET=firefox",
-    "build-chrome": "webpack --env.TARGET=chrome"
+    "build-firefox": "webpack --env.TARGET=firefox && node ./utils/package-firefox.js",
+    "build-chrome": "webpack --env.TARGET=chrome && node ./utils/package-chrome.js"
   },
   "repository": {
     "type": "git",
